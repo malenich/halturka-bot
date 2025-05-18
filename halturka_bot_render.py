@@ -84,8 +84,7 @@ async def approve(callback: types.CallbackQuery):
     if not data:
         await callback.answer("Данные не найдены.")
         return
-    text = f"Категория: {data['category']}
-{data['text']}"
+    text = f"Категория: {data['category']} {data['text']}"
     if "photo" in data:
         await bot.send_photo(chat_id=CHANNEL_USERNAME, photo=data["photo"], caption=text)
     else:
