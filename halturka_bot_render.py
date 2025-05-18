@@ -45,8 +45,7 @@ async def get_photo(message: types.Message, state: FSMContext):
     data = await state.get_data()
     text = data.get("text")
     photo = message.photo[-1].file_id
-    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}:
-{text}"
+    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}: {text}"
     await bot.send_photo(chat_id=ADMIN_ID, photo=photo, caption=caption)
     await message.answer("Анкета с фото отправлена Каркуше на проверку. Спасибо!")
     await state.finish()
