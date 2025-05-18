@@ -38,8 +38,7 @@ async def skip_photo(message: types.Message, state: FSMContext):
     text = data["text"]
     user_id = data["user_id"]
     username = data["username"]
-    caption = f"📝 Новая анкета от пользователя @{username or user_id}:
-{text}"
+    caption = f"📝 Новая анкета от пользователя @{username or user_id}: {text}"
     keyboard = InlineKeyboardMarkup().add(
         InlineKeyboardButton("✅ Подтвердить", callback_data=f"approve_{user_id}"),
         InlineKeyboardButton("❌ Отклонить", callback_data=f"reject_{user_id}")
@@ -55,8 +54,7 @@ async def get_photo(message: types.Message, state: FSMContext):
     text = data["text"]
     user_id = message.from_user.id
     username = message.from_user.username
-    caption = f"📝 Новая анкета от пользователя @{username or user_id}:
-{text}"
+    caption = f"📝 Новая анкета от пользователя @{username or user_id}: {text}"
     keyboard = InlineKeyboardMarkup().add(
         InlineKeyboardButton("✅ Подтвердить", callback_data=f"approve_{user_id}"),
         InlineKeyboardButton("❌ Отклонить", callback_data=f"reject_{user_id}")
