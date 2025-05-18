@@ -55,9 +55,7 @@ async def skip_photo(message: types.Message, state: FSMContext):
     user_data[message.from_user.id] = data
     text = data["text"]
     category = data["category"]
-    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}:
-Категория: {category}
-{text}"
+    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}: Категория: {category} {text}"
     keyboard = InlineKeyboardMarkup().add(
         InlineKeyboardButton("✅ Подтвердить", callback_data=f"approve_{message.from_user.id}"),
         InlineKeyboardButton("❌ Отклонить", callback_data=f"reject_{message.from_user.id}")
@@ -70,9 +68,7 @@ async def skip_photo(message: types.Message, state: FSMContext):
 async def get_photo(message: types.Message, state: FSMContext):
     data = await state.get_data()
     user_data[message.from_user.id] = {**data, "photo": message.photo[-1].file_id}
-    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}:
-Категория: {data['category']}
-{data['text']}"
+    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}: Категория: {data['category']} {data['text']}"
     keyboard = InlineKeyboardMarkup().add(
         InlineKeyboardButton("✅ Подтвердить", callback_data=f"approve_{message.from_user.id}"),
         InlineKeyboardButton("❌ Отклонить", callback_data=f"reject_{message.from_user.id}")
