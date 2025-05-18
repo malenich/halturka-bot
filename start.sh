@@ -1,2 +1,2 @@
 #!/bin/bash
-python halturka_bot_render.py
+halturka_bot_render (1).py
