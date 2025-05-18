@@ -35,8 +35,7 @@ async def get_text(message: types.Message, state: FSMContext):
 async def skip_photo(message: types.Message, state: FSMContext):
     data = await state.get_data()
     text = data.get("text")
-    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}:
-{text}"
+    caption = f"Новая анкета от пользователя @{message.from_user.username or message.from_user.id}: {text}"
     await bot.send_message(chat_id=ADMIN_ID, text=caption)
     await message.answer("Анкета с фото отправлена Каркуше на проверку. Спасибо!")
     await state.finish()
