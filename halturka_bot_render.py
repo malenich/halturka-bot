@@ -105,8 +105,7 @@ async def rejection_reason(message: types.Message, state: FSMContext):
     data = await state.get_data()
     user_id = data["target_user"]
     await bot.send_message(chat_id=user_id, text="Каркуша отклонил твою анкету, она не будет опубликована.")
-    await bot.send_message(chat_id=user_id, text=f"Причина отказа: {message.text}
-Попробуй снова, устранив причину отказа.")
+    await bot.send_message(chat_id=user_id, text=f"Причина отказа: {message.text} Попробуй снова, устранив причину отказа.")
     await message.answer("Отказ отправлен.")
     await state.finish()
 
