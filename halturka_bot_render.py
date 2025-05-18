@@ -54,7 +54,7 @@ async def send_to_admin(user_id, text, photo):
         types.InlineKeyboardButton(text="✅ Подтвердить", callback_data=f"approve:{user_id}"),
         types.InlineKeyboardButton(text="❌ Отклонить", callback_data=f"reject:{user_id}")
     )
-    caption = f"Новая анкета от пользователя {user_id}:
+    caption = f"Новая анкета от пользователя @{user_id}:"
 
 {text}"
     if photo:
